@@ -11,4 +11,7 @@
     <string name="comfort">Удобства</string>
     <string name="most_important">Самое необходимое</string>
     <string name="include_header">Что включено</string>
+    <string name="steigenberger_makadi">Steigenberger Makadi</string>
+    <string name="details">Подробнее о номере</string>
+    <string name="select_room">Выбрать номер</string>
 </resources>

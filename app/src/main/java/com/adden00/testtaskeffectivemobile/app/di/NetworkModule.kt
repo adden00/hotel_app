@@ -1,7 +1,8 @@
 package com.adden00.testtaskeffectivemobile.app.di
 
-import com.adden00.testtaskeffectivemobile.app.Constants
+import com.adden00.testtaskeffectivemobile.core.Constants
 import com.adden00.testtaskeffectivemobile.features.hotel_screen.data.network.HotelApiClient
+import com.adden00.testtaskeffectivemobile.features.rooms_screen.data.network.RoomsApiClient
 import com.jakewharton.retrofit2.converter.kotlinx.serialization.asConverterFactory
 import dagger.Module
 import dagger.Provides
@@ -30,6 +31,22 @@ class NetworkModule {
             .build()
             .create(HotelApiClient::class.java)
     }
+
+    @Provides
+    @Singleton
+    fun provideRoomsApiClient(client: OkHttpClient): RoomsApiClient {
+        val json = Json { ignoreUnknownKeys = true }
+        return Retrofit.Builder()
+            .baseUrl(Constants.BASE_URL)
+            .addConverterFactory(
+                @OptIn(ExperimentalSerializationApi::class)
+                json.asConverterFactory("application/json".toMediaType())
+            )
+            .client(client)
+            .build()
+            .create(RoomsApiClient::class.java)
+    }
+
 
     @Provides
     @Singleton

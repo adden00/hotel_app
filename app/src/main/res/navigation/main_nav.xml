@@ -9,5 +9,14 @@
         android:id="@+id/hotelFragment"
         android:name="com.adden00.testtaskeffectivemobile.features.hotel_screen.presentation.HotelFragment"
         android:label="fragment_hotel"
-        tools:layout="@layout/fragment_hotel" />
+        tools:layout="@layout/fragment_hotel">
+        <action
+            android:id="@+id/action_hotelFragment_to_roomsFragment"
+            app:destination="@id/roomsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/roomsFragment"
+        android:name="com.adden00.testtaskeffectivemobile.features.rooms_screen.presentation.RoomsFragment"
+        android:label="fragment_rooms"
+        tools:layout="@layout/fragment_rooms" />
 </navigation>

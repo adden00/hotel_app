@@ -6,6 +6,7 @@
     <color name="yellow20">#33FFC700</color>
     <color name="yellow_text">#FFA800</color>
     <color name="blue">#0D72FF</color>
+    <color name="alpha_blue">#1A0D72FF</color>
     <color name="grey">#828796</color>
     <color name="alpha_grey">#26828796</color>
     <color name="main_bg">#FBFBFC</color>

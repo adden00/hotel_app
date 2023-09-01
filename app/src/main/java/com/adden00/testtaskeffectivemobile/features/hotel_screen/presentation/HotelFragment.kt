@@ -11,12 +11,14 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.flowWithLifecycle
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.fragment.findNavController
+import com.adden00.testtaskeffectivemobile.R
 import com.adden00.testtaskeffectivemobile.app.di.ui.DaggerHotelInfoComponent
 import com.adden00.testtaskeffectivemobile.app.getAppComponent
 import com.adden00.testtaskeffectivemobile.core.ViewModelFactory
+import com.adden00.testtaskeffectivemobile.core.common_adapters.FlexboxAdapter
+import com.adden00.testtaskeffectivemobile.core.common_adapters.SliderPhotoAdapter
 import com.adden00.testtaskeffectivemobile.databinding.FragmentHotelBinding
-import com.adden00.testtaskeffectivemobile.features.hotel_screen.presentation.adapters.FacilitiesAdapter
-import com.adden00.testtaskeffectivemobile.features.hotel_screen.presentation.adapters.SliderAdapter
 import com.adden00.testtaskeffectivemobile.features.hotel_screen.presentation.mvi.HotelEvent
 import com.adden00.testtaskeffectivemobile.features.hotel_screen.presentation.mvi.HotelState
 import com.google.android.flexbox.FlexboxLayoutManager
@@ -29,11 +31,11 @@ class HotelFragment : Fragment() {
     private val binding: FragmentHotelBinding get() = _binding!!
 
     private val sliderAdapter by lazy {
-        SliderAdapter()
+        SliderPhotoAdapter()
     }
 
     private val facilitiesAdapter by lazy {
-        FacilitiesAdapter()
+        FlexboxAdapter()
     }
 
 
@@ -122,6 +124,9 @@ class HotelFragment : Fragment() {
             FlexboxLayoutManager(requireContext())
         binding.swipeRefresh.setOnRefreshListener {
             viewModel.newEvent(HotelEvent.LoadHotelInfo)
+        }
+        binding.includedHotelInfo.btnSelectRoom.setOnClickListener {
+            findNavController().navigate(R.id.action_hotelFragment_to_roomsFragment)
         }
     }
 }

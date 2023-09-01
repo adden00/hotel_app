@@ -8,6 +8,7 @@
         <item name="android:textColor">@color/black</item>
     </style>
 
+
     <style name="rating_text" parent="text">
         <item name="android:textColor">@color/yellow_text</item>
     </style>
@@ -50,6 +51,14 @@
     <style name="facility_button_small_text" parent="text">
         <item name="android:textColor">@color/grey</item>
         <item name="android:textSize">14sp</item>
+    </style>
+
+    <style name="appbar_text" parent="text">
+        <item name="android:textSize">18sp</item>
+    </style>
+
+    <style name="common_blue_text" parent="text">
+        <item name="android:textColor">@color/blue</item>
     </style>
 
 

@@ -1,35 +1,28 @@
-package com.adden00.testtaskeffectivemobile.features.hotel_screen.presentation.adapters
+package com.adden00.testtaskeffectivemobile.core.common_adapters
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.adden00.testtaskeffectivemobile.databinding.SlederPhotoItemBinding
-import com.bumptech.glide.Glide
+import com.adden00.testtaskeffectivemobile.databinding.FacilityItemBinding
 
-class SliderAdapter :
-    ListAdapter<String, SliderAdapter.ItemHolder>(object : DiffUtil.ItemCallback<String>() {
+class FlexboxAdapter :
+    ListAdapter<String, FlexboxAdapter.ItemHolder>(object : DiffUtil.ItemCallback<String>() {
         override fun areItemsTheSame(oldItem: String, newItem: String): Boolean = oldItem == newItem
         override fun areContentsTheSame(oldItem: String, newItem: String): Boolean =
             oldItem == newItem
     }) {
 
-    class ItemHolder(private val binding: SlederPhotoItemBinding) :
+    class ItemHolder(private val binding: FacilityItemBinding) :
         RecyclerView.ViewHolder(binding.root) {
-        fun render(url: String) {
-            Glide.with(binding.root.context).load(url).centerCrop().into(binding.image)
+        fun render(facility: String) {
+            binding.tvFacility.text = facility
         }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ItemHolder =
-        ItemHolder(
-            SlederPhotoItemBinding.inflate(
-                LayoutInflater.from(parent.context),
-                parent,
-                false
-            )
-        )
+        ItemHolder(FacilityItemBinding.inflate(LayoutInflater.from(parent.context), parent, false))
 
     override fun onBindViewHolder(holder: ItemHolder, position: Int) {
         holder.render(getItem(position))
