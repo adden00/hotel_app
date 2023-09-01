@@ -1,6 +1,9 @@
 plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
+    id 'org.jetbrains.kotlin.plugin.serialization' version '1.5.21'
+    id 'kotlin-kapt'
+    id 'kotlin-parcelize'
 }
 
 android {
@@ -30,15 +33,31 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
+
+    buildFeatures {
+        viewBinding true
+    }
 }
 
 dependencies {
-
-    implementation 'androidx.core:core-ktx:1.8.0'
-    implementation 'androidx.appcompat:appcompat:1.6.1'
-    implementation 'com.google.android.material:material:1.5.0'
-    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
-    testImplementation 'junit:junit:4.13.2'
-    androidTestImplementation 'androidx.test.ext:junit:1.1.5'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
+    implementation deps.constraintLayout
+    implementation deps.core_ktx
+    implementation deps.appcompat
+    implementation deps.material
+    implementation deps.fragment_ktx
+    implementation deps.retrofit
+    implementation 'androidx.fragment:fragment-ktx:1.6.1'
+    implementation 'com.google.android.flexbox:flexbox:3.0.0'
+    implementation deps.navigation_fragment
+    implementation deps.navigation_ui
+    implementation deps.kotlinx_serialization
+    implementation deps.retrofitSerialize
+    implementation deps.okHttp
+    implementation deps.kotlinx_serialization
+    implementation deps.glide
+    implementation deps.dagger
+    annotationProcessor deps.glideAnnotationProcessor
+    implementation deps.swipe_refresh
+    kapt deps.daggetKapt
+    kapt deps.roomKapt
 }

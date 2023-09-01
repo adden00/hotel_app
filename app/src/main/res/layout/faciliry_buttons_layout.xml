@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="16dp"
+    app:cardBackgroundColor="@color/main_bg"
+    app:cardElevation="0dp"
+    app:cardCornerRadius="15dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingTop="16dp"
+        android:paddingBottom="16dp"
+        android:layout_margin="4dp">
+
+
+        <ImageView
+            android:id="@+id/imLogo1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            app:layout_constraintBottom_toBottomOf="@+id/tvFacility1Description"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/tvFacility1Name"
+            app:srcCompat="@drawable/ic_emoji_happy" />
+
+        <TextView
+            style="@style/facility_button_main_text."
+            android:id="@+id/tvFacility1Name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:text="@string/comfort"
+            app:layout_constraintStart_toEndOf="@+id/imLogo1"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            style="@style/facility_button_small_text"
+            android:id="@+id/tvFacility1Description"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:text="@string/most_important"
+            app:layout_constraintStart_toStartOf="@+id/tvFacility1Name"
+            app:layout_constraintTop_toBottomOf="@+id/tvFacility1Name" />
+
+        <ImageView
+            android:id="@+id/imArrow1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            app:layout_constraintBottom_toBottomOf="@+id/imLogo1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/imLogo1"
+            app:srcCompat="@drawable/ic_arrow_right" />
+
+        <View
+            android:id="@+id/spacer1"
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_marginTop="10dp"
+            android:background="@color/alpha_grey"
+            app:layout_constraintEnd_toEndOf="@+id/imArrow1"
+            app:layout_constraintStart_toStartOf="@+id/tvFacility1Description"
+            app:layout_constraintTop_toBottomOf="@+id/tvFacility1Description" />
+
+
+        <ImageView
+            android:id="@+id/imLogo2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            app:layout_constraintBottom_toBottomOf="@+id/tvFacility2Description"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/tvFacility2Name"
+            app:srcCompat="@drawable/ic_tick_square" />
+
+        <TextView
+            style="@style/facility_button_main_text."
+            android:id="@+id/tvFacility2Name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="10dp"
+            android:text="@string/include_header"
+            app:layout_constraintStart_toEndOf="@+id/imLogo2"
+            app:layout_constraintTop_toTopOf="@+id/spacer1" />
+
+        <TextView
+            style="@style/facility_button_small_text"
+            android:id="@+id/tvFacility2Description"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:text="@string/most_important"
+            app:layout_constraintStart_toStartOf="@+id/tvFacility2Name"
+            app:layout_constraintTop_toBottomOf="@+id/tvFacility2Name" />
+
+        <ImageView
+            android:id="@+id/imArrow2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            app:layout_constraintBottom_toBottomOf="@+id/imLogo2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/imLogo2"
+            app:srcCompat="@drawable/ic_arrow_right" />
+
+        <View
+            android:id="@+id/spacer2"
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_marginTop="8dp"
+            android:background="@color/alpha_grey"
+            app:layout_constraintEnd_toEndOf="@+id/imArrow2"
+            app:layout_constraintStart_toStartOf="@+id/tvFacility2Description"
+            app:layout_constraintTop_toBottomOf="@+id/tvFacility2Description" />
+
+        <ImageView
+            android:id="@+id/imLogo3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            app:layout_constraintBottom_toBottomOf="@+id/tvFacility3Description"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/tvFacility3Name"
+            app:srcCompat="@drawable/ic_close_square" />
+
+        <TextView
+            style="@style/facility_button_main_text."
+            android:id="@+id/tvFacility3Name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="10dp"
+            android:text="@string/include_header"
+            app:layout_constraintStart_toEndOf="@+id/imLogo3"
+            app:layout_constraintTop_toTopOf="@+id/spacer2" />
+
+        <TextView
+            style="@style/facility_button_small_text"
+            android:id="@+id/tvFacility3Description"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:text="@string/most_important"
+            app:layout_constraintStart_toStartOf="@+id/tvFacility3Name"
+            app:layout_constraintTop_toBottomOf="@+id/tvFacility3Name" />
+
+        <ImageView
+            android:id="@+id/imArrow3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            app:layout_constraintBottom_toBottomOf="@+id/imLogo3"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/imLogo3"
+            app:srcCompat="@drawable/ic_arrow_right" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.cardview.widget.CardView>

@@ -1,7 +1,8 @@
-package com.adden00.testtaskeffectivemobile
+package com.adden00.testtaskeffectivemobile.app
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
+import com.adden00.testtaskeffectivemobile.R
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

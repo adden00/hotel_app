@@ -1,3 +1,14 @@
 <resources>
     <string name="app_name">test task effective mobile</string>
+    <string name="rating">rating</string>
+    <string name="name">Name</string>
+    <string name="price_type">Price type</string>
+    <string name="_000">000$</string>
+    <string name="address">Address</string>
+    <string name="about_hotel">Об отеле</string>
+    <string name="facilities">facilities</string>
+    <string name="to_room_selection">К выбору номера</string>
+    <string name="comfort">Удобства</string>
+    <string name="most_important">Самое необходимое</string>
+    <string name="include_header">Что включено</string>
 </resources>
