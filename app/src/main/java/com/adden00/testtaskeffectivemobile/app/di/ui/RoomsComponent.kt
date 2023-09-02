@@ -1,8 +1,8 @@
 package com.adden00.testtaskeffectivemobile.app.di.ui
 
 import com.adden00.testtaskeffectivemobile.app.di.AppComponent
+import com.adden00.testtaskeffectivemobile.app.di.ScreenScope
 import com.adden00.testtaskeffectivemobile.features.rooms_screen.presentation.RoomsFragment
-import com.addisov00.testtaskmts.common.di.ScreenScope
 import dagger.Component
 
 

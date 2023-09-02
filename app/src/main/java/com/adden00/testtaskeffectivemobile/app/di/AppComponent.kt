@@ -1,6 +1,7 @@
 package com.adden00.testtaskeffectivemobile.app.di
 
 import android.content.Context
+import com.adden00.testtaskeffectivemobile.features.booking_screen.domain.BookingRepository
 import com.adden00.testtaskeffectivemobile.features.hotel_screen.domain.HotelRepository
 import com.adden00.testtaskeffectivemobile.features.rooms_screen.domain.RoomsRepository
 import dagger.BindsInstance
@@ -13,6 +14,7 @@ interface AppComponent {
 
     fun hotelRepository(): HotelRepository
     fun roomsRepository(): RoomsRepository
+    fun bookingRepository(): BookingRepository
 
     @Component.Factory
     interface Factory {

@@ -84,7 +84,7 @@
 
         <TextView
             android:id="@+id/tvPriceType"
-            style="@style/price_type_text"
+            style="@style/common_grey_text"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"

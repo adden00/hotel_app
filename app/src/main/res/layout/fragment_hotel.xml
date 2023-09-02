@@ -18,7 +18,7 @@
 
             <include
                 android:id="@+id/includedHotelInfo"
-                layout="@layout/hotel_description_info" />
+                layout="@layout/screen_hotel_description_info" />
 
         </FrameLayout>
 

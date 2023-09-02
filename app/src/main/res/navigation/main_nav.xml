@@ -18,5 +18,14 @@
         android:id="@+id/roomsFragment"
         android:name="com.adden00.testtaskeffectivemobile.features.rooms_screen.presentation.RoomsFragment"
         android:label="fragment_rooms"
-        tools:layout="@layout/fragment_rooms" />
+        tools:layout="@layout/fragment_rooms">
+        <action
+            android:id="@+id/action_roomsFragment_to_bookingFragment"
+            app:destination="@id/bookingFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/bookingFragment"
+        android:name="com.adden00.testtaskeffectivemobile.features.booking_screen.presentation.BookingFragment"
+        android:label="fragment_booking"
+        tools:layout="@layout/fragment_booking" />
 </navigation>

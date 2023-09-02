@@ -12,7 +12,7 @@ import com.adden00.testtaskeffectivemobile.databinding.RoomItemBinding
 import com.adden00.testtaskeffectivemobile.features.rooms_screen.presentation.models.RoomsModel
 import com.google.android.flexbox.FlexboxLayoutManager
 
-class RoomsAdapter :
+class RoomsAdapter(private val onClickCallback: (RoomsModel) -> Unit) :
     ListAdapter<RoomsModel, RoomsAdapter.ItemHolder>(object : DiffUtil.ItemCallback<RoomsModel>() {
         override fun areItemsTheSame(oldItem: RoomsModel, newItem: RoomsModel): Boolean =
             oldItem.id == newItem.id
@@ -21,7 +21,8 @@ class RoomsAdapter :
             oldItem == newItem
     }) {
 
-    class ItemHolder(private val binding: RoomItemBinding) : RecyclerView.ViewHolder(binding.root) {
+    inner class ItemHolder(private val binding: RoomItemBinding) :
+        RecyclerView.ViewHolder(binding.root) {
         private val sliderAdapter by lazy {
             SliderPhotoAdapter()
         }
@@ -40,6 +41,9 @@ class RoomsAdapter :
             binding.rcFacilities.adapter = facilitiesAdapter
             binding.rcFacilities.layoutManager = FlexboxLayoutManager(binding.root.context)
             facilitiesAdapter.submitList(item.peculiarities)
+            binding.btnSelectRoom.setOnClickListener {
+                onClickCallback(item)
+            }
         }
     }
 

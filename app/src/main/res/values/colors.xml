@@ -11,5 +11,6 @@
     <color name="alpha_grey">#26828796</color>
     <color name="main_bg">#FBFBFC</color>
     <color name="dark_grey">#2C3035</color>
+    <color name="error_field">#26EB5757</color>
 
 </resources>

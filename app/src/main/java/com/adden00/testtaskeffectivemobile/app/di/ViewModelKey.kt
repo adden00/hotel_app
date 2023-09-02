@@ -1,4 +1,4 @@
-package com.addisov00.testtaskmts.common.di
+package com.adden00.testtaskeffectivemobile.app.di
 
 import androidx.lifecycle.ViewModel
 import dagger.MapKey

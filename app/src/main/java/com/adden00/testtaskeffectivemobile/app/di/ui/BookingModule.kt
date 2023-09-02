@@ -4,19 +4,18 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.adden00.testtaskeffectivemobile.app.di.ViewModelKey
 import com.adden00.testtaskeffectivemobile.core.ViewModelFactory
-import com.adden00.testtaskeffectivemobile.features.hotel_screen.presentation.HotelViewModel
+import com.adden00.testtaskeffectivemobile.features.booking_screen.presentation.BookingViewModel
 import dagger.Binds
 import dagger.Module
 import dagger.multibindings.IntoMap
 
 @Module
-interface HotelInfoModule {
+interface BookingModule {
     @Binds
     fun bindViewModelFactory(impl: ViewModelFactory): ViewModelProvider.Factory
 
     @IntoMap
-    @ViewModelKey(HotelViewModel::class)
+    @ViewModelKey(BookingViewModel::class)
     @Binds
-    fun bindHotelViewModel(impl: HotelViewModel): ViewModel
-
+    fun bindBookingViewModel(impl: BookingViewModel): ViewModel
 }

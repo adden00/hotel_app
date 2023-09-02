@@ -11,6 +11,7 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.flowWithLifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
+import com.adden00.testtaskeffectivemobile.R
 import com.adden00.testtaskeffectivemobile.app.di.ui.DaggerRoomsComponent
 import com.adden00.testtaskeffectivemobile.app.getAppComponent
 import com.adden00.testtaskeffectivemobile.core.ViewModelFactory
@@ -27,22 +28,19 @@ import javax.inject.Inject
 class RoomsFragment : Fragment() {
     private var _binding: FragmentRoomsBinding? = null
     private val binding: FragmentRoomsBinding get() = _binding!!
-
-
     private val roomsAdapter by lazy {
-        RoomsAdapter()
+        RoomsAdapter {
+            findNavController().navigate(R.id.action_roomsFragment_to_bookingFragment)
+        }
     }
-
 
     @Inject
     lateinit var viewModelFactory: ViewModelFactory
     private val viewModel: RoomsViewModel by viewModels { viewModelFactory }
 
-
     override fun onAttach(context: Context) {
         super.onAttach(context)
         DaggerRoomsComponent.factory().create(requireContext().getAppComponent()).inject(this)
-
     }
 
     override fun onCreateView(
@@ -57,14 +55,12 @@ class RoomsFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         setUi()
         subscribeOnState()
-
     }
 
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
     }
-
 
     private fun subscribeOnState() {
         viewModel.roomsScreenState
@@ -103,5 +99,4 @@ class RoomsFragment : Fragment() {
         }
 
     }
-
 }

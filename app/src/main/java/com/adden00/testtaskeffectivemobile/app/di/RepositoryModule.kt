@@ -1,5 +1,8 @@
 package com.adden00.testtaskeffectivemobile.app.di
 
+import com.adden00.testtaskeffectivemobile.features.booking_screen.data.BookingRepositoryImpl
+import com.adden00.testtaskeffectivemobile.features.booking_screen.data.network.BookingApiClient
+import com.adden00.testtaskeffectivemobile.features.booking_screen.domain.BookingRepository
 import com.adden00.testtaskeffectivemobile.features.hotel_screen.data.HotelRepositoryImpl
 import com.adden00.testtaskeffectivemobile.features.hotel_screen.data.network.HotelApiClient
 import com.adden00.testtaskeffectivemobile.features.hotel_screen.domain.HotelRepository
@@ -21,4 +24,9 @@ class RepositoryModule {
     @Singleton
     fun provideRoomsRepository(api: RoomsApiClient): RoomsRepository =
         RoomsRepositoryImpl(api)
+
+    @Provides
+    @Singleton
+    fun provideBookingRepository(api: BookingApiClient): BookingRepository =
+        BookingRepositoryImpl(api)
 }
