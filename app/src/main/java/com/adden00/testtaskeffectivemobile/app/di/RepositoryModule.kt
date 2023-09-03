@@ -1,14 +1,11 @@
 package com.adden00.testtaskeffectivemobile.app.di
 
-import com.adden00.testtaskeffectivemobile.features.booking_screen.data.BookingRepositoryImpl
-import com.adden00.testtaskeffectivemobile.features.booking_screen.data.network.BookingApiClient
-import com.adden00.testtaskeffectivemobile.features.booking_screen.domain.BookingRepository
-import com.adden00.testtaskeffectivemobile.features.hotel_screen.data.HotelRepositoryImpl
-import com.adden00.testtaskeffectivemobile.features.hotel_screen.data.network.HotelApiClient
-import com.adden00.testtaskeffectivemobile.features.hotel_screen.domain.HotelRepository
-import com.adden00.testtaskeffectivemobile.features.rooms_screen.data.RoomsRepositoryImpl
-import com.adden00.testtaskeffectivemobile.features.rooms_screen.data.network.RoomsApiClient
-import com.adden00.testtaskeffectivemobile.features.rooms_screen.domain.RoomsRepository
+import com.adden00.hotel_screen.data.HotelRepositoryImpl
+import com.adden00.hotel_screen.data.network.HotelApiClient
+import com.adden00.hotel_screen.domain.HotelRepository
+import com.adden00.rooms_screen.data.RoomsRepositoryImpl
+import com.adden00.rooms_screen.data.network.RoomsApiClient
+import com.adden00.rooms_screen.domain.RoomsRepository
 import dagger.Module
 import dagger.Provides
 import javax.inject.Singleton
@@ -27,6 +24,6 @@ class RepositoryModule {
 
     @Provides
     @Singleton
-    fun provideBookingRepository(api: BookingApiClient): BookingRepository =
-        BookingRepositoryImpl(api)
+    fun provideBookingRepository(api: com.adden00.booking_screen.data.network.BookingApiClient): com.adden00.booking_screen.domain.BookingRepository =
+        com.adden00.booking_screen.data.BookingRepositoryImpl(api)
 }

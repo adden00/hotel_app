@@ -1,8 +1,8 @@
 package com.adden00.testtaskeffectivemobile.app.di.ui
 
+import com.adden00.booking_screen.presentation.BookingFragment
 import com.adden00.testtaskeffectivemobile.app.di.AppComponent
 import com.adden00.testtaskeffectivemobile.app.di.ScreenScope
-import com.adden00.testtaskeffectivemobile.features.booking_screen.presentation.BookingFragment
 import dagger.Component
 
 

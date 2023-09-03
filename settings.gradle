@@ -14,3 +14,8 @@ dependencyResolutionManagement {
 }
 rootProject.name = "test task effective mobile"
 include ':app'
+include ':core'
+include ':booking_screen'
+include ':hotel_screen'
+include ':rooms_screen'
+include ':success_screen'

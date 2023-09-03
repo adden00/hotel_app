@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_nav"
+    app:startDestination="@id/hotelFragment">
+
+    <fragment
+        android:id="@+id/hotelFragment"
+        android:name="com.adden00.hotel_screen.presentation.HotelFragment"
+        android:label="fragment_hotel"
+        tools:layout="@layout/fragment_hotel">
+        <action
+            android:id="@+id/action_hotelFragment_to_roomsFragment"
+            app:destination="@id/roomsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/roomsFragment"
+        android:name="com.adden00.rooms_screen.presentation.RoomsFragment"
+        android:label="fragment_rooms"
+        tools:layout="@layout/fragment_rooms">
+        <action
+            android:id="@+id/action_roomsFragment_to_bookingFragment"
+            app:destination="@id/bookingFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/bookingFragment"
+        android:name="com.adden00.testtaskeffectivemobile.features.booking_screen.presentation.BookingFragment"
+        android:label="fragment_booking"
+        tools:layout="@layout/fragment_booking" >
+        <action
+            android:id="@+id/action_bookingFragment_to_successFragment"
+            app:destination="@id/successFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/successFragment"
+        android:name="com.adden00.success_screen.success_screen.SuccessFragment"
+        android:label="fragment_success"
+        tools:layout="@layout/fragment_success" >
+        <action
+            android:id="@+id/action_successFragment_to_hotelFragment"
+            app:destination="@id/hotelFragment"
+            app:popUpTo="@id/main_nav"
+            app:popUpToInclusive="true" />
+    </fragment>
+</navigation>

@@ -11,6 +11,11 @@
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/app" />
+            <option value="$PROJECT_DIR$/booking_screen" />
+            <option value="$PROJECT_DIR$/core" />
+            <option value="$PROJECT_DIR$/hotel_screen" />
+            <option value="$PROJECT_DIR$/rooms_screen" />
+            <option value="$PROJECT_DIR$/success_screen" />
           </set>
         </option>
       </GradleProjectSettings>
