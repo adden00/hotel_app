@@ -13,12 +13,12 @@ import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.adden00.core.R
 import com.adden00.rooms_screen.databinding.FragmentRoomsBinding
+import com.adden00.rooms_screen.di.RoomsComponentProvider
 import com.adden00.rooms_screen.presentation.adapters.RoomsAdapter
 import com.adden00.rooms_screen.presentation.mvi.RoomsEffect
 import com.adden00.rooms_screen.presentation.mvi.RoomsEvent
 import com.adden00.rooms_screen.presentation.mvi.RoomsState
-import com.adden00.testtaskeffectivemobile.app.di.ui.DaggerRoomsComponent
-import com.adden00.testtaskeffectivemobile.app.getAppComponent
+//import com.adden00.rooms_screen.di.DaggerRoomsComponent
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
 import javax.inject.Inject
@@ -39,7 +39,9 @@ class RoomsFragment : Fragment() {
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
-        DaggerRoomsComponent.factory().create(requireContext().getAppComponent()).inject(this)
+//        DaggerRoomsComponent.factory().create().inject(this)
+        (requireActivity().applicationContext as RoomsComponentProvider).provideRoomsComponent()
+            .inject(this)
     }
 
     override fun onCreateView(

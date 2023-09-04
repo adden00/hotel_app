@@ -1,3 +1,4 @@
+package com.adden00.booking_screen.data
 
 import com.adden00.booking_screen.data.network.models.BookingDto
 import com.adden00.booking_screen.domain.models.BookingDomainModel

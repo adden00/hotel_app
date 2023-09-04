@@ -1,13 +1,28 @@
-package com.adden00.testtaskeffectivemobile.app.di.ui
+package com.adden00.rooms_screen.di
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.adden00.core.ViewModelFactory
+import com.adden00.core.di.ScreenScope
+import com.adden00.core.di.ViewModelKey
+import com.adden00.rooms_screen.presentation.RoomsFragment
 import com.adden00.rooms_screen.presentation.RoomsViewModel
-import com.adden00.testtaskeffectivemobile.app.di.ViewModelKey
 import dagger.Binds
 import dagger.Module
+import dagger.Subcomponent
 import dagger.multibindings.IntoMap
+
+
+@Subcomponent(modules = [RoomsModule::class])
+@ScreenScope
+interface RoomsComponent {
+    fun inject(fragment: RoomsFragment)
+
+    @Subcomponent.Factory
+    interface Factory {
+        fun create(): RoomsComponent
+    }
+}
 
 @Module
 interface RoomsModule {

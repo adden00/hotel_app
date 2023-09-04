@@ -1,13 +1,28 @@
-package com.adden00.testtaskeffectivemobile.app.di.ui
+package com.adden00.booking_screen.di
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
+import com.adden00.booking_screen.presentation.BookingFragment
 import com.adden00.booking_screen.presentation.BookingViewModel
 import com.adden00.core.ViewModelFactory
-import com.adden00.testtaskeffectivemobile.app.di.ViewModelKey
+import com.adden00.core.di.ScreenScope
+import com.adden00.core.di.ViewModelKey
 import dagger.Binds
 import dagger.Module
+import dagger.Subcomponent
 import dagger.multibindings.IntoMap
+
+
+@Subcomponent(modules = [BookingModule::class])
+@ScreenScope
+interface BookingComponent {
+    fun inject(fragment: BookingFragment)
+
+    @Subcomponent.Factory
+    interface Factory {
+        fun create(): BookingComponent
+    }
+}
 
 @Module
 interface BookingModule {
@@ -19,3 +34,4 @@ interface BookingModule {
     @Binds
     fun bindBookingViewModel(impl: BookingViewModel): ViewModel
 }
+

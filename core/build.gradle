@@ -44,5 +44,7 @@ dependencies {
     implementation deps.dagger
     kapt deps.daggetKapt
     implementation deps.glide
+    implementation deps.navigation_fragment
+    implementation deps.navigation_ui
     annotationProcessor deps.glideAnnotationProcessor
 }

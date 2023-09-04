@@ -14,10 +14,10 @@ import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.adden00.core.R
 import com.adden00.hotel_screen.databinding.FragmentHotelBinding
+import com.adden00.hotel_screen.di.HotelComponentProvider
 import com.adden00.hotel_screen.presentation.mvi.HotelEvent
 import com.adden00.hotel_screen.presentation.mvi.HotelState
-import com.adden00.testtaskeffectivemobile.app.di.ui.DaggerHotelInfoComponent
-import com.adden00.testtaskeffectivemobile.app.getAppComponent
+//import com.adden00.hotel_screen.di.DaggerHotelInfoComponent
 import com.google.android.flexbox.FlexboxLayoutManager
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
@@ -43,7 +43,9 @@ class HotelFragment : Fragment() {
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
-        DaggerHotelInfoComponent.factory().create(requireContext().getAppComponent()).inject(this)
+        (requireActivity().applicationContext as HotelComponentProvider).provideHotelComponent()
+            .inject(this)
+//        DaggerHotelInfoComponent.factory().create(Z).inject(this)
 
     }
 

@@ -12,6 +12,7 @@ import androidx.lifecycle.flowWithLifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.adden00.booking_screen.databinding.FragmentBookingBinding
+import com.adden00.booking_screen.di.BookingComponentProvider
 import com.adden00.booking_screen.presentation.adapters.BookingPriceAdapter
 import com.adden00.booking_screen.presentation.adapters.CustomerContactsAdapter
 import com.adden00.booking_screen.presentation.adapters.CustomerDataAdapter
@@ -25,8 +26,8 @@ import com.adden00.booking_screen.presentation.mvi.BookingState
 import com.adden00.core.R
 import com.adden00.core.ViewModelFactory
 import com.adden00.core.delegate_utills.BaseAdapter
-import com.adden00.testtaskeffectivemobile.app.di.ui.DaggerBookingComponent
-import com.adden00.testtaskeffectivemobile.app.getAppComponent
+//import com.adden00.booking_screen.di.DaggerBookingComponent
+//import com.adden00.testtaskeffectivemobile.app.getAppComponent
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
 import javax.inject.Inject
@@ -47,7 +48,9 @@ class BookingFragment : Fragment() {
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
-        DaggerBookingComponent.factory().create(requireContext().getAppComponent()).inject(this)
+        (requireActivity().applicationContext as BookingComponentProvider).provideBookingComponent()
+            .inject(this)
+//        DaggerBookingComponent.factory().create().inject(this)
     }
 
     override fun onCreateView(

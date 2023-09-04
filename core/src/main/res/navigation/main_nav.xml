@@ -25,7 +25,7 @@
     </fragment>
     <fragment
         android:id="@+id/bookingFragment"
-        android:name="com.adden00.testtaskeffectivemobile.features.booking_screen.presentation.BookingFragment"
+        android:name="com.adden00.booking_screen.presentation.BookingFragment"
         android:label="fragment_booking"
         tools:layout="@layout/fragment_booking" >
         <action
