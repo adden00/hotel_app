@@ -5,7 +5,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.adden00.core.databinding.SlederPhotoItemBinding
+import com.adden00.core.databinding.SliderPhotoItemBinding
 import com.bumptech.glide.Glide
 
 class SliderPhotoAdapter :
@@ -15,7 +15,7 @@ class SliderPhotoAdapter :
             oldItem == newItem
     }) {
 
-    class ItemHolder(private val binding: SlederPhotoItemBinding) :
+    class ItemHolder(private val binding: SliderPhotoItemBinding) :
         RecyclerView.ViewHolder(binding.root) {
         fun render(url: String) {
             Glide.with(binding.root.context).load(url).centerCrop().into(binding.image)
@@ -24,7 +24,7 @@ class SliderPhotoAdapter :
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ItemHolder =
         ItemHolder(
-            SlederPhotoItemBinding.inflate(
+            SliderPhotoItemBinding.inflate(
                 LayoutInflater.from(parent.context),
                 parent,
                 false

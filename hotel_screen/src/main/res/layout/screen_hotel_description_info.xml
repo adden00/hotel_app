@@ -162,7 +162,7 @@
                     app:layout_constraintStart_toStartOf="@+id/rc_facilities"
                     app:layout_constraintTop_toBottomOf="@+id/tvFacilities">
 
-                    <include layout="@layout/faciliry_buttons_layout" />
+                    <include layout="@layout/facility_buttons_layout" />
                 </FrameLayout>
 
 

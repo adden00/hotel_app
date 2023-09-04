@@ -55,4 +55,6 @@ dependencies {
     implementation deps.dagger
     kapt deps.daggetKapt
     annotationProcessor deps.glideAnnotationProcessor
+    implementation 'ru.tinkoff.decoro:decoro:1.5.2'
+
 }
