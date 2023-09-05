@@ -1,10 +1,10 @@
 package com.adden00.booking_screen.presentation.models.result_models
 
 data class UserDataResultModel(
-    val name: String,
-    val surname: String,
-    val birthday: String,
-    val citizen: String,
-    val passportNumber: String,
-    val passportData: String
+    val name: String? = null,
+    val surname: String? = null,
+    val birthday: String? = null,
+    val citizen: String? = null,
+    val passportNumber: String? = null,
+    val passportData: String? = null
 )

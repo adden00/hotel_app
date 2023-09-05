@@ -6,26 +6,27 @@ import androidx.recyclerview.widget.RecyclerView
 
 class BaseAdapter :
     ListAdapter<DelegateItem, RecyclerView.ViewHolder>(DelegateAdapterItemCallback()) {
-    private val delegateAdapters = mutableListOf<AdapterDelegate>()
+    private val _delegateAdapters = mutableListOf<AdapterDelegate>()
+    fun getAdapters() = _delegateAdapters.toList()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
-        return delegateAdapters[viewType].onCreateViewHolder(parent)
+        return _delegateAdapters[viewType].onCreateViewHolder(parent)
     }
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         val viewType = getItemViewType(position)
-        delegateAdapters[viewType].onBindViewHolder(holder, getItem(position))
+        _delegateAdapters[viewType].onBindViewHolder(holder, getItem(position))
     }
 
     override fun getItemViewType(position: Int): Int {
-        val index = delegateAdapters.indexOfFirst {
+        val index = _delegateAdapters.indexOfFirst {
             it.isOfViewType(currentList[position])
         }
         return index
     }
 
     fun addDelegate(delegate: AdapterDelegate) {
-        delegateAdapters.add(delegate)
+        _delegateAdapters.add(delegate)
     }
 }
 

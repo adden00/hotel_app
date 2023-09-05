@@ -26,8 +26,6 @@ import com.adden00.booking_screen.presentation.mvi.BookingState
 import com.adden00.core.R
 import com.adden00.core.ViewModelFactory
 import com.adden00.core.delegate_utills.BaseAdapter
-//import com.adden00.booking_screen.di.DaggerBookingComponent
-//import com.adden00.testtaskeffectivemobile.app.getAppComponent
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
 import javax.inject.Inject
@@ -43,61 +41,7 @@ class BookingFragment : Fragment() {
     private val viewModel: BookingViewModel by viewModels { viewModelFactory }
 
     private val adapter by lazy {
-        BaseAdapter()
-    }
-
-    override fun onAttach(context: Context) {
-        super.onAttach(context)
-        (requireActivity().applicationContext as BookingComponentProvider).provideBookingComponent()
-            .inject(this)
-//        DaggerBookingComponent.factory().create().inject(this)
-    }
-
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View {
-        _binding = FragmentBookingBinding.inflate(inflater, container, false)
-        return binding.root
-    }
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        setUi()
-        subscribeOnState()
-    }
-
-    private fun subscribeOnState() {
-        viewModel.bookingScreenState
-            .flowWithLifecycle(lifecycle)
-            .onEach(::render)
-            .launchIn(lifecycleScope)
-
-        viewModel.screenEffects
-            .flowWithLifecycle(lifecycle)
-            .onEach(::launchEffect)
-            .launchIn(lifecycleScope)
-    }
-
-    private fun render(state: BookingState) {
-        binding.pBar.visibility = if(state.isLoading) View.VISIBLE else View.GONE
-
-        state.bookingInfo?.let {
-            adapter.submitList(it.createDelegateList())
-        }
-    }
-
-    private fun launchEffect(effect: BookingEffect) {
-        when (effect) {
-            is BookingEffect.Init -> Unit
-            is BookingEffect.ShowError -> {
-                Toast.makeText(requireContext(), "Error while loading!", Toast.LENGTH_SHORT).show()
-            }
-        }
-    }
-
-    private fun setUi() {
-        binding.rcAllList.adapter = adapter.apply {
+        BaseAdapter().apply {
             addDelegate(HotelAddressAdapter())
             addDelegate(HotelDetailsAdapter())
             addDelegate(CustomerContactsAdapter())
@@ -120,12 +64,84 @@ class BookingFragment : Fragment() {
             })
             addDelegate(BookingPriceAdapter())
         }
+    }
+
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+        (requireActivity().applicationContext as BookingComponentProvider).provideBookingComponent()
+            .inject(this)
+//        DaggerBookingComponent.factory().create().inject(this)
+    }
+
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View {
+        _binding = FragmentBookingBinding.inflate(inflater, container, false)
+        return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        setUi()
+        subscribeOnState()
+
+    }
+
+    private fun subscribeOnState() {
+        viewModel.bookingScreenState
+            .flowWithLifecycle(lifecycle)
+            .onEach(::render)
+            .launchIn(lifecycleScope)
+
+        viewModel.screenEffects
+            .flowWithLifecycle(lifecycle)
+            .onEach(::launchEffect)
+            .launchIn(lifecycleScope)
+    }
+
+    private fun render(state: BookingState) {
+        binding.pBar.visibility = if (state.isLoading) View.VISIBLE else View.GONE
+
+        state.bookingInfo?.let {
+            adapter.submitList(it.createDelegateList())
+        }
+    }
+
+    private fun launchEffect(effect: BookingEffect) {
+        when (effect) {
+            is BookingEffect.Init -> Unit
+            is BookingEffect.ShowError -> {
+                Toast.makeText(
+                    requireContext(),
+                    getString(R.string.loading_error),
+                    Toast.LENGTH_SHORT
+                ).show()
+            }
+        }
+    }
+
+    private fun setUi() {
+        binding.rcAllList.adapter = adapter
         binding.btnPay.setOnClickListener {
-            findNavController().navigate(R.id.action_bookingFragment_to_successFragment)
+            if (checkFields())
+                findNavController().navigate(R.id.action_bookingFragment_to_successFragment)
+            else
+                Toast.makeText(requireContext(), "Заполните все поля!", Toast.LENGTH_SHORT).show()
         }
         binding.toolbar.setNavigationOnClickListener {
             findNavController().navigateUp()
         }
+    }
+
+    private fun checkFields(): Boolean {
+        adapter.getAdapters().forEach {
+            if (it is CustomerContactsAdapter && !it.fieldsAreFilled())
+                return false
+            if (it is CustomerDataAdapter && !it.fieldsAreFilled())
+                return false
+        }
+        return true
     }
 
     override fun onDestroyView() {

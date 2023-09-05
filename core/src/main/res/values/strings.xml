@@ -45,4 +45,5 @@
     <string name="you_order_saved">Ваш заказ принят в работу</string>
     <string name="confirm_text">Подтверждение заказа №104893 может занять некоторое время (от 1 часа до суток). Как только мы получим ответ от туроператора, вам на почту придет уведомление.</string>
     <string name="super_mark">Супер!</string>
+    <string name="loading_error">Ошибка загрузки!</string>
 </resources>

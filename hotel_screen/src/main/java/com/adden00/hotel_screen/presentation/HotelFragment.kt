@@ -17,7 +17,6 @@ import com.adden00.hotel_screen.databinding.FragmentHotelBinding
 import com.adden00.hotel_screen.di.HotelComponentProvider
 import com.adden00.hotel_screen.presentation.mvi.HotelEvent
 import com.adden00.hotel_screen.presentation.mvi.HotelState
-//import com.adden00.hotel_screen.di.DaggerHotelInfoComponent
 import com.google.android.flexbox.FlexboxLayoutManager
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
@@ -45,7 +44,6 @@ class HotelFragment : Fragment() {
         super.onAttach(context)
         (requireActivity().applicationContext as HotelComponentProvider).provideHotelComponent()
             .inject(this)
-//        DaggerHotelInfoComponent.factory().create(Z).inject(this)
 
     }
 
@@ -83,7 +81,11 @@ class HotelFragment : Fragment() {
                 binding.swipeRefresh.isRefreshing = false
                 binding.includedHotelInfoLayout.visibility = View.GONE
                 binding.pBar.visibility = View.GONE
-                Toast.makeText(requireContext(), "Error while loading", Toast.LENGTH_SHORT).show()
+                Toast.makeText(
+                    requireContext(),
+                    requireContext().getString(R.string.loading_error),
+                    Toast.LENGTH_SHORT
+                ).show()
             }
 
             is HotelState.Init -> {

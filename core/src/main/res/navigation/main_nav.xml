@@ -30,7 +30,8 @@
         tools:layout="@layout/fragment_booking" >
         <action
             android:id="@+id/action_bookingFragment_to_successFragment"
-            app:destination="@id/successFragment" />
+            app:destination="@id/successFragment"
+            app:popUpTo="@id/hotelFragment" />
     </fragment>
     <fragment
         android:id="@+id/successFragment"

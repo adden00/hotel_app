@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/main_bg"
-    tools:context="com.adden00.success_screen.success_screen.SuccessFragment">
+    tools:context=".success_screen.SuccessFragment">
 
 
     <com.google.android.material.appbar.AppBarLayout

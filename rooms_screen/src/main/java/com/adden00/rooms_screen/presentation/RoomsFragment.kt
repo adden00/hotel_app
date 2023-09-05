@@ -18,7 +18,6 @@ import com.adden00.rooms_screen.presentation.adapters.RoomsAdapter
 import com.adden00.rooms_screen.presentation.mvi.RoomsEffect
 import com.adden00.rooms_screen.presentation.mvi.RoomsEvent
 import com.adden00.rooms_screen.presentation.mvi.RoomsState
-//import com.adden00.rooms_screen.di.DaggerRoomsComponent
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
 import javax.inject.Inject
@@ -39,7 +38,6 @@ class RoomsFragment : Fragment() {
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
-//        DaggerRoomsComponent.factory().create().inject(this)
         (requireActivity().applicationContext as RoomsComponentProvider).provideRoomsComponent()
             .inject(this)
     }
@@ -85,7 +83,11 @@ class RoomsFragment : Fragment() {
         when (effect) {
             is RoomsEffect.Init -> Unit
             is RoomsEffect.ShowError -> {
-                Toast.makeText(requireContext(), "Error while loading", Toast.LENGTH_SHORT).show()
+                Toast.makeText(
+                    requireContext(),
+                    requireContext().getString(R.string.loading_error),
+                    Toast.LENGTH_SHORT
+                ).show()
             }
         }
     }
@@ -98,6 +100,5 @@ class RoomsFragment : Fragment() {
         binding.toolbar.setNavigationOnClickListener {
             findNavController().navigateUp()
         }
-
     }
 }
