@@ -1,5 +1,6 @@
 package com.adden00.success_screen.success_screen
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -33,6 +34,7 @@ class SuccessFragment: Fragment() {
         _binding = null
     }
 
+    @SuppressLint("SetTextI18n")
     private fun setUi() {
         binding.btnSuper.setOnClickListener {
             findNavController().navigate(R.id.action_successFragment_to_hotelFragment)
@@ -40,5 +42,7 @@ class SuccessFragment: Fragment() {
         binding.toolbar.setNavigationOnClickListener {
             findNavController().navigateUp()
         }
+        binding.tvDetails.text =
+            getString(R.string.confirm_otder_may) + hashCode().toString() + getString(R.string.confirm_order_end)
     }
 }
