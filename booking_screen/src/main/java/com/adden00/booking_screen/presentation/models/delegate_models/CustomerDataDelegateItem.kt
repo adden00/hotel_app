@@ -4,7 +4,6 @@ import com.adden00.booking_screen.presentation.models.TouristCollapseType
 import com.adden00.core.delegate_utills.DelegateItem
 
 data class CustomerDataDelegateItem(
-//    val id: Int,
     val collapseType: TouristCollapseType,
     val touristNum: Int
 

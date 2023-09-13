@@ -2,6 +2,7 @@ package com.adden00.hotel_screen.di
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
+import com.adden00.core.ViewModelFactory
 import com.adden00.core.di.ScreenScope
 import com.adden00.core.di.ViewModelKey
 import com.adden00.hotel_screen.presentation.HotelFragment
@@ -26,7 +27,7 @@ interface HotelInfoComponent {
 @Module
 interface HotelInfoModule {
     @Binds
-    fun bindViewModelFactory(impl: com.adden00.core.ViewModelFactory): ViewModelProvider.Factory
+    fun bindViewModelFactory(impl: ViewModelFactory): ViewModelProvider.Factory
 
     @IntoMap
     @ViewModelKey(HotelViewModel::class)

@@ -6,6 +6,8 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import com.adden00.core.common_adapters.FlexboxAdapter
+import com.adden00.core.common_adapters.SliderPhotoAdapter
 import com.adden00.rooms_screen.databinding.RoomItemBinding
 import com.adden00.rooms_screen.presentation.models.RoomsModel
 import com.google.android.flexbox.FlexboxLayoutManager
@@ -22,11 +24,11 @@ class RoomsAdapter(private val onClickCallback: (RoomsModel) -> Unit) :
     inner class ItemHolder(private val binding: RoomItemBinding) :
         RecyclerView.ViewHolder(binding.root) {
         private val sliderAdapter by lazy {
-            com.adden00.core.common_adapters.SliderPhotoAdapter()
+            SliderPhotoAdapter()
         }
 
         private val facilitiesAdapter by lazy {
-            com.adden00.core.common_adapters.FlexboxAdapter()
+            FlexboxAdapter()
         }
 
         @SuppressLint("SetTextI18n")

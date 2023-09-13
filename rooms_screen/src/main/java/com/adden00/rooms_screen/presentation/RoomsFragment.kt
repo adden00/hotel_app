@@ -12,6 +12,7 @@ import androidx.lifecycle.flowWithLifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.adden00.core.R
+import com.adden00.core.ViewModelFactory
 import com.adden00.rooms_screen.databinding.FragmentRoomsBinding
 import com.adden00.rooms_screen.di.RoomsComponentProvider
 import com.adden00.rooms_screen.presentation.adapters.RoomsAdapter
@@ -33,7 +34,7 @@ class RoomsFragment : Fragment() {
     }
 
     @Inject
-    lateinit var viewModelFactory: com.adden00.core.ViewModelFactory
+    lateinit var viewModelFactory: ViewModelFactory
     private val viewModel: RoomsViewModel by viewModels { viewModelFactory }
 
     override fun onAttach(context: Context) {

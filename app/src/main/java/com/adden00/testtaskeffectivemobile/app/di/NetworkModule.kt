@@ -1,5 +1,7 @@
 package com.adden00.testtaskeffectivemobile.app.di
 
+import com.adden00.booking_screen.data.network.BookingApiClient
+import com.adden00.core.Constants
 import com.adden00.hotel_screen.data.network.HotelApiClient
 import com.adden00.rooms_screen.data.network.RoomsApiClient
 import com.jakewharton.retrofit2.converter.kotlinx.serialization.asConverterFactory
@@ -21,7 +23,7 @@ class NetworkModule {
     fun provideHotelApiClient(client: OkHttpClient): HotelApiClient {
         val json = Json { ignoreUnknownKeys = true }
         return Retrofit.Builder()
-            .baseUrl(com.adden00.core.Constants.BASE_URL)
+            .baseUrl(Constants.BASE_URL)
             .addConverterFactory(
                 @OptIn(ExperimentalSerializationApi::class)
                 json.asConverterFactory("application/json".toMediaType())
@@ -36,7 +38,7 @@ class NetworkModule {
     fun provideRoomsApiClient(client: OkHttpClient): RoomsApiClient {
         val json = Json { ignoreUnknownKeys = true }
         return Retrofit.Builder()
-            .baseUrl(com.adden00.core.Constants.BASE_URL)
+            .baseUrl(Constants.BASE_URL)
             .addConverterFactory(
                 @OptIn(ExperimentalSerializationApi::class)
                 json.asConverterFactory("application/json".toMediaType())
@@ -48,17 +50,17 @@ class NetworkModule {
 
     @Provides
     @Singleton
-    fun provideBookingApiClient(client: OkHttpClient): com.adden00.booking_screen.data.network.BookingApiClient {
+    fun provideBookingApiClient(client: OkHttpClient): BookingApiClient {
         val json = Json { ignoreUnknownKeys = true }
         return Retrofit.Builder()
-            .baseUrl(com.adden00.core.Constants.BASE_URL)
+            .baseUrl(Constants.BASE_URL)
             .addConverterFactory(
                 @OptIn(ExperimentalSerializationApi::class)
                 json.asConverterFactory("application/json".toMediaType())
             )
             .client(client)
             .build()
-            .create(com.adden00.booking_screen.data.network.BookingApiClient::class.java)
+            .create(BookingApiClient::class.java)
     }
 
 

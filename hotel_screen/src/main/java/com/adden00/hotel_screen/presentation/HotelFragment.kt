@@ -13,6 +13,9 @@ import androidx.lifecycle.flowWithLifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.adden00.core.R
+import com.adden00.core.ViewModelFactory
+import com.adden00.core.common_adapters.FlexboxAdapter
+import com.adden00.core.common_adapters.SliderPhotoAdapter
 import com.adden00.hotel_screen.databinding.FragmentHotelBinding
 import com.adden00.hotel_screen.di.HotelComponentProvider
 import com.adden00.hotel_screen.presentation.mvi.HotelEvent
@@ -27,16 +30,16 @@ class HotelFragment : Fragment() {
     private val binding: FragmentHotelBinding get() = _binding!!
 
     private val sliderAdapter by lazy {
-        com.adden00.core.common_adapters.SliderPhotoAdapter()
+        SliderPhotoAdapter()
     }
 
     private val facilitiesAdapter by lazy {
-        com.adden00.core.common_adapters.FlexboxAdapter()
+        FlexboxAdapter()
     }
 
 
     @Inject
-    lateinit var viewModelFactory: com.adden00.core.ViewModelFactory
+    lateinit var viewModelFactory: ViewModelFactory
     private val viewModel: HotelViewModel by viewModels { viewModelFactory }
 
 
